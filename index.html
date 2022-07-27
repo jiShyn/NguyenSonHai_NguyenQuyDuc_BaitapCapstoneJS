@@ -1,267 +1,287 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Quản lý sản phẩm</title>
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous"
-    />
-  </head>
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+      <title>Quản lý sản phẩm</title>
+      <link
+         rel="stylesheet"
+         href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      />
+      <link
+         rel="stylesheet"
+         href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+         crossorigin="anonymous"
+      />
+      <style>
+         #container {
+            min-width: 310px;
+            max-width: 800px;
+            height: 400px;
+            margin: 0 auto;
+         }
 
-  <body>
-    <div class="container">
-      <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button
-          class="navbar-toggler d-lg-none"
-          type="button"
-          data-toggle="collapse"
-          data-target="#collapsibleNavId"
-          aria-controls="collapsibleNavId"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        ></button>
-        <div class="collapse navbar-collapse" id="collapsibleNavId">
-          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li class="nav-item active">
-              <a class="nav-link" href="./ShoppingCart/app/views/index.html"
-                >Home <span class="sr-only">(current)</span></a
-              >
-            </li>
+         .tb {
+            margin-top: 4px;
+            color: red;
+            min-height: 10px;
+            font-size: 112px12px
+         }
+      </style>
+   </head>
+
+   <body>
+      <div class="container">
+         <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button
+               class="navbar-toggler d-lg-none"
+               type="button"
+               data-toggle="collapse"
+               data-target="#collapsibleNavId"
+               aria-controls="collapsibleNavId"
+               aria-expanded="false"
+               aria-label="Toggle navigation"
+            ></button>
+            <div class="collapse navbar-collapse" id="collapsibleNavId">
+               <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                  <li class="nav-item active">
+                     <a
+                        class="nav-link"
+                        href="./ShoppingCart/app/views/index.html"
+                        >Home <span class="sr-only">(current)</span></a
+                     >
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="#">Link</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                     <a
+                        class="nav-link dropdown-toggle"
+                        href="#"
+                        id="dropdownId"
+                        data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                        >Dropdown</a
+                     >
+                     <div class="dropdown-menu" aria-labelledby="dropdownId">
+                        <a class="dropdown-item" href="#">Action 1</a>
+                        <a class="dropdown-item" href="#">Action 2</a>
+                     </div>
+                  </li>
+               </ul>
+            </div>
+         </nav>
+
+         <header class="display-4 my-4">Thực hành javascript - axios</header>
+         <!-- Phan tab menu -->
+         <ul class="nav nav-tabs" role="tablist">
             <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
+               <a
+                  class="nav-link active"
+                  href="#DanhSachSP"
+                  role="tab"
+                  data-toggle="tab"
+                  >Danh sách sản phẩm</a
+               >
             </li>
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                id="dropdownId"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-                >Dropdown</a
-              >
-              <div class="dropdown-menu" aria-labelledby="dropdownId">
-                <a class="dropdown-item" href="#">Action 1</a>
-                <a class="dropdown-item" href="#">Action 2</a>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </nav>
-
-      <header class="display-4 my-4">Thực hành javascript - axios</header>
-      <!-- Phan tab menu -->
-      <ul class="nav nav-tabs" role="tablist">
-        <li class="nav-item">
-          <a
-            class="nav-link active"
-            href="#DanhSachSP"
-            role="tab"
-            data-toggle="tab"
-            >Danh sách sản phẩm</a
-          >
-        </li>
-      </ul>
-      <br />
-      <!-- Tab panes -->
-      <div class="tab-content">
-        <!--Danh sách sản phẩm -->
-        <div role="tabpanel" class="tab-pane in active" id="DanhSachSP">
-          <div class="row">
-            <div class="col-md-8">
-              <!-- BEGIN BUTTOM THÊM MỚI -->
-              <button
-                id="btnThemSP"
-                class="btn btn-success"
-                data-toggle="modal"
-                data-target="#myModal"
-              >
-                <i class="fa fa-plus mr-1"></i>
-                Thêm Mới
-              </button>
-              <!-- END BUTTON THÊM MỚI -->
+         </ul>
+         <br />
+         <!-- Tab panes -->
+         <div class="tab-content">
+            <!--Danh sách sản phẩm -->
+            <div role="tabpanel" class="tab-pane in active" id="DanhSachSP">
+               <div class="row">
+                  <div class="col-md-8">
+                     <!-- BEGIN BUTTOM THÊM MỚI -->
+                     <button
+                        id="btnThemSP"
+                        class="btn btn-success"
+                        data-toggle="modal"
+                        data-target="#myModal"
+                     >
+                        <i class="fa fa-plus mr-1"></i>
+                        Thêm Mới
+                     </button>
+                     <!-- END BUTTON THÊM MỚI -->
+                  </div>
+                  <div class="col-md-4">
+                     <!-- BEGIN TÌM KIẾM -->
+                     <div class="input-group mb-3">
+                        <input
+                           id="txtSearch"
+                           type="text"
+                           class="form-control"
+                           placeholder="Nhập từ khóa"
+                           aria-label="Recipient's username"
+                           aria-describedby="basic-addon2"
+                        />
+                        <div class="input-group-append">
+                           <span class="input-group-text" id="basic-addon2"
+                              ><i class="fa fa-search"></i
+                           ></span>
+                        </div>
+                     </div>
+                     <!-- END TÌM KIẾM -->
+                  </div>
+               </div>
+               <div class="clear-fix"></div>
+               <div class="tblSanPham" id="tblSanPham">
+                  <!-- BEGIN TABLE SẢN PHẨM -->
+                  <table class="table table-bordered">
+                     <thead>
+                        <th>STT</th>
+                        <th>Tên Sản Phẩm</th>
+                        <th>Giá</th>
+                        <th>Hình Ảnh</th>
+                        <th>Mô Tả</th>
+                        <th>Màn Hình</th>
+                        <th>Camera Sau</th>
+                        <th>Camera Trước</th>
+                        <th>Thương Hiệu</th>
+                        <th>Action</th>
+                     </thead>
+                     <tbody id="tblDanhSachSP"></tbody>
+                  </table>
+                  <!-- END TABLE SẢN PHẨM -->
+               </div>
+               <br />
             </div>
-            <div class="col-md-4">
-              <!-- BEGIN TÌM KIẾM -->
-              <div class="input-group mb-3">
-                <input
-                  id="txtSearch"
-                  type="text"
-                  class="form-control"
-                  placeholder="Nhập từ khóa"
-                  aria-label="Recipient's username"
-                  aria-describedby="basic-addon2"
-                />
-                <div class="input-group-append">
-                  <span class="input-group-text" id="basic-addon2"
-                    ><i class="fa fa-search"></i
-                  ></span>
-                </div>
-              </div>
-              <!-- END TÌM KIẾM -->
-            </div>
-          </div>
-          <div class="clear-fix"></div>
-          <div class="tblSanPham" id="tblSanPham">
-            <!-- BEGIN TABLE SẢN PHẨM -->
-            <table class="table table-bordered">
-              <thead>
-                <th>STT</th>
-                <th>Tên Sản Phẩm</th>
-                <th>Giá</th>
-                <th>Hình Ảnh</th>
-                <th>Mô Tả</th>
-                <th>Màn Hình</th>
-                <th>Độ Phân Giải</th>
-                <th>Camera Trước</th>
-                <th>Thương Hiệu</th>
-                <th>Action</th>
-              </thead>
-              <tbody id="tblDanhSachSP"></tbody>
-            </table>
-            <!-- END TABLE SẢN PHẨM -->
-          </div>
-          <br />
-        </div>
-        <!-- Kết thúc danh sách sản phẩm -->
-      </div>
+            <!-- Kết thúc danh sách sản phẩm -->
+         </div>
 
-      <!--KetThuc Tabmenu-->
+         <!--KetThuc Tabmenu-->
 
-      <!-- The Modal -->
-      <div class="modal fade" id="myModal">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <!-- Modal Header -->
-            <div class="modal-header">
-              <h4 class="modal-title">Modal Heading</h4>
-              <button type="button" class="close" data-dismiss="modal">
-                &times;
-              </button>
-            </div>
-            <!-- Modal body -->
-            <div class="modal-body">
-              <!-- Dùng input hidden để lưu id khi muốn cập nhật -->
-              <input type="text" id="MaSP" hidden />
+         <!-- The Modal -->
+         <div class="modal fade" id="myModal">
+            <div class="modal-dialog">
+               <div class="modal-content">
+                  <!-- Modal Header -->
+                  <div class="modal-header">
+                     <h4 class="modal-title">Modal Heading</h4>
+                     <button type="button" class="close" data-dismiss="modal">
+                        &times;
+                     </button>
+                  </div>
+                  <!-- Modal body -->
+                  <div class="modal-body">
+                     <!-- Dùng input hidden để lưu id khi muốn cập nhật -->
+                     <input type="text" id="MaSP" hidden />
 
-              <div class="form-group">
-                <label>Tên Sản Phẩm</label>
-                <input
-                  id="TenSP"
-                  class="form-control"
-                  placeholder="Nhập vào tên sản phẩm"
-                />
-              </div>
-              <div class="form-group">
-                <label>Giá</label>
-                <input
-                  id="GiaSP"
-                  class="form-control"
-                  placeholder="Nhập vào giá"
-                />
-              </div>
-              <div class="form-group">
-                <label>Hình Ảnh</label>
-                <input
-                  id="HinhSP"
-                  class="form-control"
-                  placeholder="Nhập vào hình sản phẩm"
-                />
-              </div>
-              <div class="form-group">
-                <label for="">Mô tả: </label>
-                <input
-                  id="MoTaSP"
-                  class="form-control"
-                  placeholder="Nhập vào mô tả sản phẩm"
-                />
-                <!-- <select class="form-control" id="loaiSP">
+                     <div class="form-group">
+                        <label>Tên Sản Phẩm</label>
+                        <input
+                           id="TenSP"
+                           class="form-control"
+                           placeholder="Nhập vào tên sản phẩm"
+                        />
+                        <p class="tb tbTenSp"></p>
+                     </div>
+                     <div class="form-group">
+                        <label>Giá</label>
+                        <input
+                           id="GiaSP"
+                           class="form-control"
+                           placeholder="Nhập vào giá"
+                        />
+                        <p class="tb tbGiaSp"></p>
+                     </div>
+                     <div class="form-group">
+                        <label>Hình Ảnh</label>
+                        <input
+                           id="HinhSP"
+                           class="form-control"
+                           placeholder="Nhập vào hình sản phẩm"
+                        />
+                        <p class="tb tbHinhAnhSp"></p>
+                     </div>
+                     <div class="form-group">
+                        <label for="">Mô tả: </label>
+                        <input
+                           id="MoTaSP"
+                           class="form-control"
+                           placeholder="Nhập vào mô tả sản phẩm"
+                        />
+                        <p class="tb tbMoTaSp"></p>
+
+                        <!-- <select class="form-control" id="loaiSP">
                   <option value="phone">Phone</option>
                   <option value="laptop">Laptop</option>
                   <option value="other">Other</option>
                 </select> -->
-              </div>
-              <div class="form-group">
-                <label>Màn Hình</label>
-                <input
-                  id="ManHinh"
-                  class="form-control"
-                  placeholder="Nhập vào màn hình"
-                />
-              </div>
-              <div class="form-group">
-                <label>Độ Phân Giải</label>
-                <input
-                  id="PhanGiai"
-                  class="form-control"
-                  placeholder="Nhập vào độ phân giải"
-                />
-              </div>
-              <div class="form-group">
-                <label>Camera Trước</label>
-                <input
-                  id="CamTruoc"
-                  class="form-control"
-                  placeholder="Nhập vào camera trước"
-                />
-              </div>
-              <div class="form-group">
-                <label>Thương Hiệu</label>
-                <input
-                  id="ThuongHieu"
-                  class="form-control"
-                  placeholder="Nhập vào thương hiệu"
-                />
-              </div>
+                     </div>
+                     <div class="form-group">
+                        <label>Màn Hình</label>
+                        <input
+                           id="ManHinh"
+                           class="form-control"
+                           placeholder="Nhập vào màn hình"
+                        />
+                        <p class="tb tbManHinhSp"></p>
+                     </div>
+                     <div class="form-group">
+                        <label>Camera Sau</label>
+                        <input
+                           id="PhanGiai"
+                           class="form-control"
+                           placeholder="Nhập vào Camera Sau"
+                        />
+                     </div>
+                     <p class="tb tbPhanGiaiSp"></p>
+                     <div class="form-group">
+                        <label>Camera Trước</label>
+                        <input
+                           id="CamTruoc"
+                           class="form-control"
+                           placeholder="Nhập vào camera trước"
+                        />
+                        <p class="tb tbCamSp"></p>
+                     </div>
+                     <div class="form-group">
+                        <label>Thương Hiệu</label>
+                        <input
+                           id="ThuongHieu"
+                           class="form-control"
+                           placeholder="Nhập vào thương hiệu"
+                        />
+                        <p class="tb tbThuongHieuSp"></p>
+                     </div>
+                  </div>
+                  <!-- Modal footer -->
+                  <div class="modal-footer"></div>
+               </div>
             </div>
-            <!-- Modal footer -->
-            <div class="modal-footer"></div>
-          </div>
-        </div>
+         </div>
       </div>
-    </div>
-    <div id="container"></div>  n 
-    <style>
-      #container {
-        min-width: 310px;
-        max-width: 800px;
-        height: 400px;
-        margin: 0 auto;
-      }
-    </style>
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.min.js"
-      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-      crossorigin="anonymous"
-    ></script>
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/modules/series-label.js"></script>
-    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+      <div id="container"></div>
+      n
 
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+      <script
+         src="https://code.jquery.com/jquery-3.3.1.min.js"
+         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+         crossorigin="anonymous"
+      ></script>
+      <script
+         src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+         crossorigin="anonymous"
+      ></script>
+      <script
+         src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+         crossorigin="anonymous"
+      ></script>
+      <script src="https://code.highcharts.com/highcharts.js"></script>
+      <script src="https://code.highcharts.com/modules/series-label.js"></script>
+      <script src="https://code.highcharts.com/modules/exporting.js"></script>
 
-    <script src="./ShoppingCart_admin/models/Product.js"></script>
-    <script src="./ShoppingCart_admin/services/productAPI.js"></script>
-    <script src="./ShoppingCart_admin/controllers/main.js"></script>
-  </body>
+      <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+      <script src="./ShoppingCart_admin/models/Product.js"></script>
+      <script src="./ShoppingCart_admin/services/productAPI.js"></script>
+      <script src="./ShoppingCart_admin/controllers/main.js"></script>
+   </body>
 </html>
