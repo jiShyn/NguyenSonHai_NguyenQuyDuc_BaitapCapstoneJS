@@ -137,6 +137,10 @@ function updateProduct() {
    var frontCamera = document.getElementById("CamTruoc").value;
    var type = document.getElementById("ThuongHieu").value;
 
+   const isValidation = isValid();
+   if (!isValidation) return;
+
+
    // B2: Khởi tạo đối tượng Product
    var product = new Product(
       id,
