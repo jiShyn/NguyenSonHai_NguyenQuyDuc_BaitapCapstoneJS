@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>ShoppingCart</title>
+      <!-- Required meta tags -->
+      <meta charset="utf-8" />
+      <meta
+         name="viewport"
+         content="width=device-width, initial-scale=1, shrink-to-fit=no"
+      />
+
+      <!-- Google Font -->
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link
+         href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+         rel="stylesheet"
+      />
+
+      <!-- FontAwesome -->
+      <link
+         rel="stylesheet"
+         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+         crossorigin="anonymous"
+         referrerpolicy="no-referrer"
+      />
+
+      <!-- Css -->
+      <link rel="stylesheet" href="../../assets/css/style.css" />
+   </head>
+   <body>
+      <div id="app">
+         <div class="banner">
+            <div class="container main">
+               <div class="w-100">
+                  <div class="select mx-auto">
+                     <label for="select-type" class="select-tag"
+                        >Loại sản phẩm:
+                     </label>
+                     <select
+                        name="select"
+                        id="select-type"
+                        onchange="filterTypePhone()"
+                     >
+                        <option value="">Chọn loại sản phẩm</option>
+                        <option>Samsung</option>
+                        <option>Iphone</option>
+                     </select>
+                  </div>
+                  <div class="wrapper-icon">
+                     <a href="#">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                     </a>
+                  </div>
+               </div>
+               <div class="row wrapper-card"></div>
+            </div>
+         </div>
+
+         <div class="overlay">
+            <div class="modal">
+               
+            </div>
+         </div>
+      </div>
+
+      <!-- Axios -->
+      <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+      <script src="../services/apiProduct.js"></script>
+      <script src="../models/Product.js"></script>
+      <script src="../controllers/main.js"></script>
+   </body>
+</html>

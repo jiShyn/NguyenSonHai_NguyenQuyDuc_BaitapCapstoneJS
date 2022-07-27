@@ -1,0 +1,331 @@
+body {
+   margin: 0;
+   padding: 0;
+}
+
+:root {
+   font-size: 16px;
+   color: #333;
+}
+
+* {
+   box-sizing: border-box;
+   font-family: "Montserrat", sans-serif;
+}
+
+div {
+   display: flex;
+}
+
+.banner {
+   position: relative;
+   height: 100vh;
+   width: 100vw;
+   background: linear-gradient(to left, #8942a8, #ba382f);
+   overflow: hidden;
+   /* display: flex; */
+}
+
+.container {
+   height: 100%;
+   /* display: flex; */
+}
+
+.select {
+   position: absolute;
+   top: 30px;
+   left: 50%;
+   transform: translateX(-50%);
+   z-index: 9999999;
+}
+
+.select-tag {
+   margin-right: 2rem;
+   display: flex;
+   align-items: center;
+}
+
+#select-type {
+   border-radius: 15px;
+   padding: 8px 4px;
+   cursor: pointer;
+}
+
+#select-type option {
+   padding: 8px 0;
+   cursor: pointer;
+}
+
+.wrapper-icon {
+   position: absolute;
+   right: 30px;
+   top: 30px;
+   padding: 8px;
+}
+
+.wrapper-icon a i {
+   font-size: 1.5em;
+   color: #333;
+}
+
+.wrapper-card {
+   position: absolute;
+   justify-content: space-evenly;
+   flex-wrap: wrap;
+   width: 90%;
+   height: 100%;
+   margin-left: 5%;
+   align-self: center;
+   align-items: center;
+}
+
+.wrapper-card .card:hover {
+   height: 450px;
+   width: 260px;
+   box-shadow: 0 5px 15px rgb(0 0 0 / 50%);
+}
+
+.wrapper-card .card:hover .details {
+   bottom: 0;
+}
+
+.card {
+   position: relative;
+   flex-shrink: 0;
+   height: 300px;
+   width: 200px;
+   background-color: #fff;
+   border-radius: 20px;
+   overflow: hidden;
+   box-shadow: 0 7px 5px -5px #4d4b4b;
+   transition: 0.5s;
+}
+
+.card-top {
+   transform: translateY(0.5rem);
+   width: 100%;
+   justify-content: space-between;
+   align-items: baseline;
+   padding: 0 1rem;
+}
+
+.card-top .fa-apple {
+   color: #fff;
+   font-size: 1.5rem;
+}
+
+.card-top .stocks {
+   font-size: 0.8rem;
+   color: royalblue;
+   font-style: italic;
+}
+
+.card .wrapper-img {
+   position: absolute;
+   height: 185px;
+   width: 185px;
+   margin: 0 auto;
+   left: 0;
+   right: 0;
+   transform: translateY(35px);
+}
+
+.card .wrapper-img img {
+   width: 100%;
+   align-self: center;
+}
+
+.card .wrapper-img .out-of-stock-cover {
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   background: rgba(0, 0, 0, 0.25);
+   justify-content: center;
+   align-items: center;
+   display: none;
+}
+
+.card .details {
+   position: absolute;
+   height: 220px;
+   width: 100%;
+   background-color: #fff;
+   border-radius: 20px;
+   flex-direction: column;
+   justify-content: space-between;
+   padding: 20px;
+   bottom: -145px;
+   transition: 0.25s;
+}
+
+.wrapper-card .card:hover .desc {
+   display: block;
+}
+
+.card .details .name-fav {
+   justify-content: space-between;
+}
+
+.card .details .name-fav .product-name {
+   font-weight: 600;
+   display: inline-flex;
+}
+
+button {
+   border: none;
+   background: none;
+   outline: none;
+   color: white;
+   cursor: pointer;
+   transition: 0.5s;
+}
+
+.card .details .desc {
+   flex-direction: column;
+   justify-content: space-between;
+   transform: translateY(5px);
+   display: none;
+}
+
+.card .details .desc h5 {
+   margin-top: 0;
+   margin-bottom: 0;
+}
+
+.details .desc p {
+   font-size: 0.9rem;
+   padding: 5px 0;
+   margin-top: 0;
+   margin-bottom: 0;
+   font-weight: light;
+}
+
+.card .details .purchase {
+   width: 100%;
+   justify-content: space-between;
+   align-items: center;
+}
+
+.card .details .purchase p {
+   margin-top: 0;
+   margin-bottom: 0;
+   font-weight: 500;
+}
+
+.qty-change {
+   justify-content: space-evenly;
+   align-items: baseline;
+}
+
+.details .purchase .add-btn {
+   border-radius: 20px;
+   border: 1px solid #333;
+   background: none;
+   color: #333;
+   padding: 6px 10px;
+}
+
+.details .purchase .add-btn:hover {
+   background: white;
+   color: black;
+}
+
+.overlay {
+   width: 100%;
+   height: 100%;
+   position: fixed;
+   top: 0;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   background-color: rgba(0, 0, 0, 0.3);
+   z-index: 2;
+   display: none;
+   justify-content: center;
+   flex-direction: column;
+   align-items: center;
+}
+
+.modal {
+   position: absolute;
+   display: flex;
+   flex-flow: column;
+   background-color: #fff;
+   min-height: 500px;
+   min-width: 500px;
+   text-align: center;
+}
+
+.modal-close {
+   position: absolute;
+   top: 0;
+   right: 0;
+   padding: 4px;
+   cursor: pointer;
+}
+
+.modal-close span {
+   font-size: 30px;
+}
+
+.quantity {
+   display: none;
+}
+
+.quantity-actions,
+.cart-quantity-action {
+   text-align: center;
+   line-height: 25px;
+   display: block;
+   border-radius: 50%;
+   width: 25px;
+   height: 25px;
+   font-size: 20px;
+   cursor: pointer;
+   border: 1px solid #333;
+   font-weight: 600;
+}
+
+.cart-quantity-action {
+   display: inline-block;
+}
+
+.quantity-number,
+.cart-quantity-number {
+   font-size: 20px;
+   margin-left: 8px;
+   margin-right: 8px;
+}
+
+.modal-footer button {
+   text-align: end;
+   background-color: #333;
+   padding: 8px 16px;
+   border-radius: 10px;
+   font-size: 20px;
+}
+
+.modal-footer button + button {
+   margin-left: 30px;
+}
+
+.modal-header h1 {
+   width: 100%;
+}
+
+.modal-footer {
+   display: block;
+   position: absolute;
+   bottom: 0;
+   right: 0;
+   margin-bottom: 30px;
+   margin-right: 30px;
+}
+
+.total {
+   text-align: end;
+}
+
+#tblCart i {
+   cursor: pointer;
+}
